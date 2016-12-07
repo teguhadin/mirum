@@ -17,7 +17,6 @@
         <script src="js/html5shiv.js"></script>
         <script src="js/respond.min.js"></script>
         <![endif]-->       
-        <link rel="shortcut icon" href="images/logoban.png">
     </head><!--/head-->
 
     <body class="homepage">
@@ -57,11 +56,10 @@
                                                 <div class="blog-item wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                                                     <h2 class="left"><?php echo $row->title;?></h2>
                                                     <p class="text-justify"><?php echo $row->short_description;?><i class="fa fa-calendar-o date-post"> <?php echo $row->post_date;?></i> </p>
-                                                    <a class="btn btn-primary btn-xs readmore" href="<?php echo 'blog/'.$row->id;?>">Selngkapnya<i class="fa fa-angle-right"></i></a>
+                                                    <a class="btn btn-primary btn-xs readmore" href="<?php echo 'detail/'. $row->id;?>">Selngkapnya<i class="fa fa-angle-right"></i></a>
                                                     <hr>
                                                 </div><!--/.blog-item-->
                                             </li>
-                                            <button class="btn btn-link"><a href="index_berita"><i class="fa fa-plus-square-o"></i> Lebih Banyak Berita</a></button>
                                             <?php
                                         }
                                         ?>

@@ -53,11 +53,11 @@ class CategoryController extends Controller {
         }
     }
 
-    public function listCategory(){
-        $dashboard = DB::table('category')->get();
-        return view('dashboard')->with([
-                    "dashboard" => $dashboard
-        ]);
-    }
+    // public function listCategory(){
+    //     $dashboard = DB::table('category')->get();
+    //     return view('dashboard')->with([
+    //                 "dashboard" => $dashboard
+    //     ]);
+    // }
 }
     

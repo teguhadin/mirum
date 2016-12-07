@@ -16,4 +16,11 @@ class FrontEndController extends Controller
                     "frontend" => $frontend
         ]);
     }
+
+    public function detailPostsArticles($id) {
+        $detail = DB::table('posts/articles')->where('id', $id)->get();
+        return view('detail')->with([
+                    "detail" => $detail
+        ]);
+    }
 }

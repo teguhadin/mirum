@@ -23,37 +23,33 @@
                 </div>
                 @endif
                 <!-- form start -->
-                <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/reset') }}">
+                <form class="form-horizontal" role="form" method="POST" action="{{action('ChangePasswordController@updatePassword')}}">
                     {{ csrf_field() }}
                     <div class="box-body">
+                    <div class="form-group">
+                            <label class="col-sm-2 control-label">Old Password</label>
+                            <div class="col-sm-10">
+                                <input id="password" type="password" class="form-control" name="old_password" required placeholder="Password">
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">New Password</label>
                             <div class="col-sm-10">
                                 <input id="password" type="password" class="form-control" name="password" required placeholder="Password">
-                                @if ($errors->has('password'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('password') }}</strong>
-                                </span>
-                                @endif
                             </div>
                         </div>
-                        <div class="form-group {{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                        <div class="form-group">
                             <label class="col-sm-2 control-label">Confirm Password</label>
                             <div class="col-sm-10">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required placeholder="Confirmation Password">
-                                @if ($errors->has('password_confirmation'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('password_confirmation') }}</strong>
-                                </span>
-                                @endif
-                            </div>
+                               </div>
                         </div>
                     </div><!-- /.box-body -->
                     <div class="box-footer">
                         <button type="submit" class="btn btn-info center-block">Submit</button>
                     </div><!-- /.box-footer -->
                     <input type="hidden" name="_token" value="<?= csrf_token(); ?>"/>
-                    <input type="text" name="email" value="{{ Auth::user()->email }}"/>
+                    <input type="text" name="id" value="{{ Auth::user()->id }}"/>
                 </form>
             </div><!-- /.box -->
             <!-- general form elements disabled -->
