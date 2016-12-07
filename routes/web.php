@@ -27,20 +27,16 @@ Route:: group(['middleware' => ['api']], function() {
     Route::post('change_password', 'ChangePasswordController@updatePassword');
     
     //Frontend
-    Route::get('frontend', 'FrontEndController@getPostsArticles');
+    Route::get('/', 'FrontEndController@getPostsArticles');
     Route::get('detail/{id}', 'FrontEndController@detailPostsArticles');
 });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 Route::get('auth/facebook', function(){
     return view('auth/facebook');
-});
-
-Route::get('addposts', function () {
-    return view('addposts');
 });
 
 Route::get('change_pasword', function () {
@@ -58,3 +54,5 @@ Auth::routes();
 
 Route::get('auth/facebook', 'Auth\RegisterController@redirectToProvider');
 Route::get('auth/facebook/callback', 'Auth\RegisterController@handleProviderCallback');
+Route::get('auth/google', 'Auth\RegisterController@redirectToProvider');
+Route::get('auth/google/callback', 'Auth\RegisterController@handleProviderCallback');

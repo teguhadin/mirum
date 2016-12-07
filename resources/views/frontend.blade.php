@@ -33,6 +33,33 @@
                         </button>
                         <a class="navbar-brand" href="index.html"></a>
                     </div>
+                    <div class="collapse navbar-collapse navbar-right">
+                        <ul class="nav navbar-nav">
+                            @if (Route::has('login'))
+                            <li 
+                            <?php
+                            if ($page == "Beranda") {
+                                echo 'class="active"';
+                            }
+                            ?>
+                                ><a href="/"><i class="fa fa-home fa-2x"></i></a></li>
+                            <li 
+                            <?php
+                            if ($page == "Login") {
+                                echo 'class="active"';
+                            }
+                            ?>
+                                ><a href="{{ url('/login') }}">Login</a></li>
+                            <li
+                                <?php
+                                if ($page == "Register") {
+                                    echo 'class="active"';
+                                }
+                                ?>
+                            ><a href="{{ url('/register') }}">Register</a></li>
+                            @endif
+                        </ul>
+                    </div>
                 </div><!--/.container-->
             </nav><!--/nav-->
 
@@ -54,9 +81,9 @@
                                             ?>
                                             <li class="media" id="list_berita">
                                                 <div class="blog-item wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                                                    <h2 class="left"><?php echo $row->title;?></h2>
-                                                    <p class="text-justify"><?php echo $row->short_description;?><i class="fa fa-calendar-o date-post"> <?php echo $row->post_date;?></i> </p>
-                                                    <a class="btn btn-primary btn-xs readmore" href="<?php echo 'detail/'. $row->id;?>">Selngkapnya<i class="fa fa-angle-right"></i></a>
+                                                    <h2 class="left"><?php echo $row->title; ?></h2>
+                                                    <p class="text-justify"><?php echo $row->short_description; ?><i class="fa fa-calendar-o date-post"> <?php echo $row->post_date; ?></i> </p>
+                                                    <a class="btn btn-primary btn-xs readmore" href="<?php echo 'detail/' . $row->id; ?>">Selngkapnya<i class="fa fa-angle-right"></i></a>
                                                     <hr>
                                                 </div><!--/.blog-item-->
                                             </li>
@@ -108,23 +135,23 @@
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <script src="js/main.js"></script>
         <script>
-            $(document).ready(function() {
+$(document).ready(function() {
 
-                //Check to see if the window is top if not then display button
-                $(window).scroll(function() {
-                    if ($(this).scrollTop() > 100) {
-                        $(".scrollToTop").fadeIn();
-                    } else {
-                        $(".scrollToTop").fadeOut();
-                    }
-                });
+    //Check to see if the window is top if not then display button
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 100) {
+            $(".scrollToTop").fadeIn();
+        } else {
+            $(".scrollToTop").fadeOut();
+        }
+    });
 
-                //Click event to scroll to top
-                $(".scrollToTop").click(function() {
-                    $("html, body").animate({scrollTop: 0}, 800);
-                    return false;
-                });
-            });
+    //Click event to scroll to top
+    $(".scrollToTop").click(function() {
+        $("html, body").animate({scrollTop: 0}, 800);
+        return false;
+    });
+});
         </script>
     </body>
 </html>

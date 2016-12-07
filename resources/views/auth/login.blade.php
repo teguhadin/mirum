@@ -1,68 +1,85 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Admin | Log in</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.4 -->
+        <link href="{{URL::asset('/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+        <!-- Font Awesome Icons -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <!-- Theme style -->
+        <link href="{{URL::asset('/dist/css/AdminLTE.min.css')}}" rel="stylesheet" type="text/css" />
+        <!-- iCheck -->
+        <link href="{{URL::asset('/plugins/iCheck/square/blue.css')}}" rel="stylesheet" type="text/css" />
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
-                        {{ csrf_field() }}
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body class="login-page">
+        <div class="login-box">
+            <div class="login-logo">
+                <b>Admin</b>
+            </div><!-- /.login-logo -->
+            <div class="login-box-body">
+                <p class="login-box-msg">Sign in to start your session</p>
+                <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
+                    {{ csrf_field() }}
+                    <div class="form-group has-feedback {{ $errors->has('email') ? ' has-error' : '' }}">
+                        <input type="email" class="form-control" placeholder="Email" name="email" value="{{ old('email') }}" required autofocus/>
+                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                        @if ($errors->has('email'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                        @endif
+                    </div>
+                    <div class="form-group has-feedback {{ $errors->has('password') ? ' has-error' : '' }}">
+                        <input type="password" class="form-control" placeholder="Password" name="password" required/>
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                        @if ($errors->has('password'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                        @endif
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                        </div><!-- /.col -->
+                    </div>
+                </form>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                <div class="social-auth-links text-center">
+                    <p>- OR -</p>
+                    <a href="{{url('auth/facebook')}}" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using Facebook</a>
+                    <a href="{{url('auth/google')}}" class="btn btn-block btn-social btn-google-plus btn-flat"><i class="fa fa-google-plus"></i> Sign in using Google+</a>
+                </div><!-- /.social-auth-links -->
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+                <a href="{{ url('/register') }}" class="text-center">Register a new membership</a>
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+            </div><!-- /.login-box-body -->
+        </div><!-- /.login-box -->
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember"> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ url('/password/reset') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
+        <!-- jQuery 2.1.4 -->
+        <script src="{{URL::asset('/plugins/jQuery/jQuery-2.1.4.min.js')}}" type="text/javascript"></script>
+        <!-- Bootstrap 3.3.2 JS -->
+        <script src="{{URL::asset('/bootstrap/js/bootstrap.min.js')}}" type="text/javascript"></script>
+        <!-- iCheck -->
+        <script src="{{URL::asset('/plugins/iCheck/icheck.min.js')}}" type="text/javascript"></script>
+        <script>
+$(function() {
+    $('input').iCheck({
+        checkboxClass: 'icheckbox_square-blue',
+        radioClass: 'iradio_square-blue',
+        increaseArea: '20%' // optional
+    });
+});
+        </script>
+    </body>
+</html>

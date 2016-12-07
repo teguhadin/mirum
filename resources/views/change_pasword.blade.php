@@ -49,7 +49,7 @@
                         <button type="submit" class="btn btn-info center-block">Submit</button>
                     </div><!-- /.box-footer -->
                     <input type="hidden" name="_token" value="<?= csrf_token(); ?>"/>
-                    <input type="text" name="id" value="{{ Auth::user()->id }}"/>
+                    <input type="hidden" name="id" value="{{ Auth::user()->id }}"/>
                 </form>
             </div><!-- /.box -->
             <!-- general form elements disabled -->

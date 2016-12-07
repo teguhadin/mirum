@@ -42,9 +42,9 @@ return [
 ],
 
 'google' => [
-    'client_id' => '132199448260-mtj7flipdicn3vfu3vb7q21tkavb5ev5.apps.googleusercontent.com',
-    'client_secret' => 'w0uLfynqd1WBT2J76SV3s5w1',
-    'redirect' => 'http://localhost:8000/auth/google/callback',
+    'client_id' => '794649157653-pectsui2a96c9nm9t1ebtt1jq64s6vlq.apps.googleusercontent.com',
+    'client_secret' => 'NIKZxI-B9iZmGIl1hc8Mc4Jw',
+    'redirect' => 'http://localhost:8000/dashboard',
 ],
 
 ];

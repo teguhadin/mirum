@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>AdminLTE 2 | Registration Page</title>
+        <title>Admin | Registration Page</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.4 -->
@@ -63,24 +63,11 @@
                         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
                     </div>
                     <div class="row">
-                        <div class="col-xs-8">
-                            <div class="checkbox icheck">
-                                <label>
-                                    <input type="checkbox"> I agree to the <a href="#">terms</a>
-                                </label>
-                            </div>
-                        </div><!-- /.col -->
-                        <div class="col-xs-4">
+                        <div class="col-md-4 col-lg-offset-4">
                             <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
                         </div><!-- /.col -->
                     </div>
                 </form>
-
-                <div class="social-auth-links text-center">
-                    <p>- OR -</p>
-                    <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign up using Facebook</a>
-                    <a href="#" class="btn btn-block btn-social btn-google-plus btn-flat"><i class="fa fa-google-plus"></i> Sign up using Google+</a>
-                </div>
 
                 <a href="{{url('/')}}" class="text-center">I already have a membership</a>
             </div><!-- /.form-box -->

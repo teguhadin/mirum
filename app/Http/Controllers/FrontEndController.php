@@ -11,14 +11,14 @@ use Session;
 class FrontEndController extends Controller
 {
     public function getPostsArticles() {
-        $frontend = DB::table('posts/articles')->get();
-        return view('frontend')->with([
-                    "frontend" => $frontend
+        $welcome = DB::table('posts/articles')->get();
+        return view('welcome')->with([
+                    "welcome" => $welcome
         ]);
     }
 
     public function detailPostsArticles($id) {
-        $detail = DB::table('posts/articles')->where('id', $id)->get();
+        $detail = DB::table('posts/articles')->where('slug', $id)->get();
         return view('detail')->with([
                     "detail" => $detail
         ]);
